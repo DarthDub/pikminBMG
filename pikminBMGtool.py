@@ -406,7 +406,9 @@ def pack_json_to_bmg(inputJSONfile, outputBMG, encoding="shift-jis", bigendian=T
         elif encoding == "latin-1":
             write_uint32(f, 0x01000000) # Used for Ger, Fra, and probably the other languages too
         elif encoding == "windows-1252":
-            write_uint32(f, 0x01000000)
+            write_uint32(f, 0x01000000)# Used by The Wind Waker and Twilight Princess
+        elif encoding == "iso8859-15":
+            write_uint32(f, 0x01000000)# Latin-9
         else:
             raise RuntimeError("unknown encoding: {}".format(encoding))
             
@@ -432,12 +434,13 @@ if __name__ == "__main__":
                             )
                         )
                         
-    parser.add_argument("--encoding", choices=["shift-jis", "latin-1", "windows-1252"], default="shift-jis", type=lambda s: s.lower(),
+    parser.add_argument("--encoding", choices=["shift-jis", "latin-1", "windows-1252", "iso8859-15"], default="shift-jis", type=lambda s: s.lower(),
                         help=(
                             "Encoding to be used when packing a text file into a BMG. Can either be 'shift-jis' "
                             "(japanese and latin characters, used for Jpn and Eng BMGs) or 'latin-1' "
                             "(latin characters and various European language characters, used for Ger, Fra and others)."
                             "windows-1252 is for The Wind Waker and Twilight Princess."
+                            "iso8859-15 is Latin-9."
                             "Default is shift-jis."
                             )
                         )
