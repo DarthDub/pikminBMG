@@ -1,6 +1,7 @@
 # Intro
 pikminBMGtool.py v0.6.1 by Yoshi2
-A tool for converting Pikmin 2 BMG files to text (JSON) and from text (JSON) to BMG.
+A tool for converting Pikmin 2 BMG files to text (JSON) and from text (JSON) to BMG. Now supports
+The Wind Waker and Twilight Princess!
 
 ## Installation advice
 
@@ -16,7 +17,8 @@ python .\pikminBMGtool.py DUMP pikmin2.bmg pikmin2_messages.txt
 python .\pikminBMGtool.py PACK pikmin2_messages.txt pikmin2.bmg 
 
 python .\pikminBMGtool.py PACK --encoding shift-jis pikmin2_messages.txt pikmin2.bmg 
-python .\pikminBMGtool.py PACK --encoding latin-1 pikmin2_messages.txt pikmin2.bmg 
+python .\pikminBMGtool.py PACK --encoding latin-1 pikmin2_messages.txt pikmin2.bmg
+python .\pikminBMGtool.py PACK --encoding windows-1252 pikmin2_messages.txt pikmin2.bmg
 ```
 
 if the --encoding option is left out, the encoding for the created bmg defaults to shift-jis, which
@@ -27,9 +29,10 @@ For the input txt file, the tool attempts to detect the encoding by the BOM (Byt
 and otherwise defaults to utf-8. This way the following encodings are supported:
 utf-8, utf-8-bom (used by Windows Notepad), utf-16 and utf-32.
 
-dumpBmg.bat, packBmg.bat and packBmglatin1.bat are included to allow for simple drag and drop.
-dumpBmg dumps a bmg to text, packBmg packs a text file to BMG with shift-jis encoding,
-packBmg_latin1 packs a text file to BMG with latin-1 encoding.
+dumpbmg.bat, packbmg.bat, packbmg_latin1.bat and packbmg_windows1252.bat are included to allow for simple drag and drop.
+dumpbmg dumps a bmg to text, packbmg packs a text file to BMG with shift-jis encoding,
+packbmg_latin1 packs a text file to BMG with latin-1 encoding, packbmg_windows1252 packs a text
+file to BMG with Windows-1252 encoding.
 
 # Information about BMG 
 
